@@ -27,5 +27,6 @@ export class Http {
   private constructor() {
     const xhrHandler = new NodeXhrRequestHandler();
     this.Client = new HttpClient(xhrHandler);
+    xhrHandler.HttpClient = this.Client;
   }
 }

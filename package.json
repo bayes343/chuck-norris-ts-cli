@@ -1,7 +1,7 @@
 {
-  "name": "fed-throwdown-20210416",
+  "name": "ts-cli-chuck-norris",
   "version": "1.0.0",
-  "description": "",
+  "description": "TypeScript example CLI using the Chuck Norris Api",
   "main": "index.js",
   "private": true,
   "scripts": {
@@ -15,8 +15,10 @@
   "dependencies": {
     "@types/core-js": "^2.5.0",
     "core-js": "^2.6.1",
-    "typescript": "^3.2.2",
+    "got": "^11.8.2",
+    "terminal-image": "^1.2.1",
     "tsbase": "^3.4.0",
+    "typescript": "^3.2.2",
     "xhr2": "^0.1.4",
     "xmlhttprequest": "^1.8.0"
   },
