@@ -1,0 +1,28 @@
+{
+  "name": "fed-throwdown-20210416",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "start": "node ./dist index.js",
+    "build": "tsc",
+    "build-watch": "tsc --watch"
+  },
+  "keywords": [],
+  "author": "Joseph Bayes",
+  "license": "MIT",
+  "dependencies": {
+    "@types/core-js": "^2.5.0",
+    "core-js": "^2.6.1",
+    "typescript": "^3.2.2",
+    "tsbase": "^3.4.0",
+    "xhr2": "^0.1.4",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/node": "^10.12.18",
+    "tslib": "^1.9.3"
+  }
+}
