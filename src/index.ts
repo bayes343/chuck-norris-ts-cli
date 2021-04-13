@@ -13,7 +13,7 @@ class Program {
  _____ _                _      _   _                 _
 /  __ \\ |              | |    | \\ | |               (_)
 | /  \\  |__  _   _  ___| | __ |  \\| | ___  _ __ _ __ _ ___
-| |  | \'_ \\| | | |/ __| |/ / | . \` |/ _ \\|\\'__|\\'__| / __|
+| |  | \ '_ \\| | | |/ __| |/ / | . \` |/ _ \\|\\'__|\\'__| / __|
 | \\__/\\ | | | |_| | (__|   <  | |\\  | (_) | |  | |  | \\__ \\
 \\_____/_| |_|\\__,_|\\___|_|\\_\\ \\_| \\_/\\___/|_|  |_|  |_|___/
 
@@ -26,20 +26,19 @@ Today's random joke is:`);
     await Program.logJokeImage(randomJoke);
   }
 
-  private static async getChuckNorrisJoke() {
+  private static async getChuckNorrisJoke(): Promise<ChuckNorrisJoke> {
     const chuckNorrisJokeApi = 'https://api.chucknorris.io/jokes/random';
-    const randomJoke = JSON.parse(await Http.Instance.Client.GetStringAsync(chuckNorrisJokeApi)) as ChuckNorrisJoke;
-    return randomJoke;
+    return JSON.parse(await Http.Instance.Client.GetStringAsync(chuckNorrisJokeApi)) as ChuckNorrisJoke;
   }
 
-  private static logJoke(randomJoke: ChuckNorrisJoke) {
+  private static logJoke(randomJoke: ChuckNorrisJoke): void {
     console.log({
       value: randomJoke.value,
       url: randomJoke.url
     });
   }
 
-  private static async logJokeImage(randomJoke: ChuckNorrisJoke) {
+  private static async logJokeImage(randomJoke: ChuckNorrisJoke): Promise<void> {
     console.log(await terminalImage.buffer(
       await got(randomJoke.icon_url).buffer(), { width: '50%', height: '50%' }
     ));
