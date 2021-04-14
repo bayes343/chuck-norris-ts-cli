@@ -3,7 +3,7 @@
 import { Http } from './httpClient';
 import { ChuckNorrisJoke } from './chuckNorrisJoke';
 import * as terminalImage from 'terminal-image';
-const got = require('got');
+import * as got from 'got';
 
 class Program {
   static async Main() {
@@ -40,7 +40,7 @@ Today's random joke is:`);
 
   private static async logJokeImage(randomJoke: ChuckNorrisJoke): Promise<void> {
     console.log(await terminalImage.buffer(
-      await got(randomJoke.icon_url).buffer(), { width: '50%', height: '50%' }
+      await got.default(randomJoke.icon_url).buffer(), { width: '50%', height: '50%' }
     ));
   }
 }
