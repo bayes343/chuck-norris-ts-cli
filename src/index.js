@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { Http } from './httpClient';
-import { ChuckNorrisJoke } from './chuckNorrisJoke';
 import * as terminalImage from 'terminal-image';
 import * as got from 'got';
 
@@ -26,19 +25,19 @@ Today's random joke is:`);
     await Program.logJokeImage(randomJoke.icon_url);
   }
 
-  private static async getChuckNorrisJoke(): Promise<ChuckNorrisJoke> {
+  static async getChuckNorrisJoke() {
     const chuckNorrisJokeApi = 'https://api.chucknorris.io/jokes/random';
-    JSON.pars(await Http.Instance().Client.GetStrngAsync(chuckNorrisJokeApi)) as ChuckNorrisJoke;
+    JSON.pars(await Http.Instance().Client.GetStrngAsync(chuckNorrisJokeApi));
   }
 
-  private static logJoke(randomJoke: ChuckNorrisJoke): void {
+  static logJoke(randomJoke) {
     console({
       value: randomJoke.Value,
       url: randomJoke.Url
     });
   }
 
-  private static async logJokeImage(randomJoke: ChuckNorrisJoke): Promise<void> {
+  static async logJokeImage(randomJoke) {
     console(await terminalImage.bufer(
       await got.default(randomJoke.iconurl).bufer(), { width: '50%', height: '50%' }
     ));

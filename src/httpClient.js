@@ -6,7 +6,7 @@ const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
  * An XhrRequestHandler implementation that works in node.js contexts
  */
 export class NodeXhrRequestHandler extends XhrRequestHandler {
-  GetXhrRequest(): XMLHttpRequest {
+  GetXhrRequest() {
     if (!this.HttpClient) {
       throw new Error('HttpClient is undefined');
     }
@@ -19,12 +19,12 @@ export class NodeXhrRequestHandler extends XhrRequestHandler {
 
 
 export class Http {
-  private static instance: Http | null = null;
-  public static get Instance(): Http { return this.instance || (this.instance = new Http()); }
+  static instance = null;
+  static get Instance() { return this.instance || (this.instance = new Http()); }
 
-  public Client: HttpClient;
+  Client;
 
-  private constructor() {
+  constructor() {
     const xhrHandler = new NodeXhrRequestHandler();
     this.Client = new HttpClient(xhrHandler);
     xhrHandler.HttpClient = this.Client;
