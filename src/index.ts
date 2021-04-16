@@ -9,7 +9,7 @@ class Program {
   static async Main() {
     const randomJoke = await Program.getChuckNorrisJoke();
 
-		console.log(`
+    console.log(`
  _____ _                _      _   _                 _
 /  __ \\ |              | |    | \\ | |               (_)
 | /  \\/ |__  _   _  ___| | __ |  \\| | ___  _ __ _ __ _ ___
